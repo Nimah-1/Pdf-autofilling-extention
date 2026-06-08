@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDF Autofill Demo</title>
+  <style>
+    body{font-family:Inter,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at top left, rgba(52,102,255,0.14), transparent 30%), radial-gradient(circle at bottom right, rgba(55,180,255,0.12), transparent 28%), #eef6ff;padding:32px;}
+    .card{max-width:720px;margin:0 auto;background:rgba(255,255,255,0.9);border-radius:28px;padding:32px;box-shadow:0 28px 60px rgba(16,42,67,0.12);border:1px solid rgba(255,255,255,0.8);}
+    label{display:block;margin:14px 0;font-size:14px;color:#102a43;}
+    input,textarea{width:100%;padding:14px;border-radius:16px;border:1px solid #d9e2ec;background:#fbfdff;font:inherit;color:#102a43;}
+    textarea{min-height:90px;resize:vertical;}
+    h1{margin-top:0;color:#102a43;font-size:28px;}
+    p{color:#526475;line-height:1.7;}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>PDF Autofill Demo Form</h1>
+    <p>Use the extension popup to upload a PDF and then click <strong>Autofill Current Page</strong>.</p>
+    <form>
+      <label>Name<input type="text" name="fullName" placeholder="Full name"></label>
+      <label>Email<input type="email" name="email" placeholder="you@example.com"></label>
+      <label>Phone<input type="tel" id="phone" placeholder="(123) 456-7890"></label>
+      <label>Address<textarea name="address" placeholder="Street, City, State"></textarea></label>
+      <label>Education<input type="text" name="education" placeholder="Degree, school"></label>
+      <label>Skills<textarea name="skills" placeholder="Skills separated by comma"></textarea></label>
+      <label>Experience<textarea name="experience" placeholder="Job title, dates, company"></textarea></label>
+      <label>Website<input type="url" name="website" placeholder="https://example.com"></label>
+      <label>Date of Birth<input type="text" name="dob" placeholder="YYYY-MM-DD"></label>
+    </form>
+  </div>
+</body>
+</html>

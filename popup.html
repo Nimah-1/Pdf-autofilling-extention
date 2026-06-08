@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="popup.css">
+  <title>Resume Autofill</title>
+</head>
+<body>
+  <div class="glass">
+    <header>
+      <h1>Resume Autofill</h1>
+      <p>Create and save your profile once, then autofill application forms with it. Optional PDF import can prefill fields for you.</p>
+    </header>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Profile</h2>
+        <button id="resetBtn" type="button" class="small-button">Reset manual fields</button>
+      </div>
+      <div id="profileFields" class="field-grid"></div>
+    </section>
+
+    <section class="section">
+      <h2>Import from Resume PDF</h2>
+      <label class="file-label" for="pdfInput">Choose resume PDF</label>
+      <input type="file" id="pdfInput" accept="application/pdf">
+      <div id="statusMessage" class="status info">Upload a resume PDF to prefill your profile fields, then review and save.</div>
+      <div class="raw-text">
+        <h2>Extracted PDF Text</h2>
+        <textarea id="rawTextView" readonly placeholder="Extracted text will appear here after PDF upload."></textarea>
+      </div>
+    </section>
+
+    <div class="buttons">
+      <button id="saveBtn">Save Profile</button>
+      <button id="autofillBtn">Start Auto Fill</button>
+      <button id="exportJsonBtn">Export Profile JSON</button>
+    </div>
+
+    <section class="section detected">
+      <h2>Resume Import Preview</h2>
+      <div id="structureContainer">
+        <pre id="structureView">No PDF loaded yet.</pre>
+      </div>
+    </section>
+
+    <div class="note">
+      <p class="small-note">Manual profile input is the primary source for autofill. PDF parsing is optional and intended to help you complete your profile faster. If you upload a PDF and also edit fields, your manual values will override the imported PDF data.</p>
+    </div>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
