@@ -1,53 +1,67 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="popup.css">
   <title>Resume Autofill</title>
 </head>
 <body>
-  <div class="glass">
-    <header>
-      <h1>Resume Autofill</h1>
-      <p>Create and save your profile once, then autofill application forms with it. Optional PDF import can prefill fields for you.</p>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1>Autofill Pro</h1>
+      </div>
+      <button id="profileIconBtn" type="button" class="profile-button hidden" title="Edit Profile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </header>
 
-    <section class="section">
-      <div class="section-header">
-        <h2>Profile</h2>
-        <button id="resetBtn" type="button" class="small-button">Reset manual fields</button>
+    <main class="app-content">
+      <div id="loginContainer" class="page">
+        <div class="onboarding-text">
+          <h2>Welcome Back</h2>
+          <p>Sign in to quickly autofill your job applications across the web.</p>
+        </div>
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com">
+        </div>
+        <button id="loginBtn" class="btn btn-primary full-width mt-4">Continue</button>
       </div>
-      <div id="profileFields" class="field-grid"></div>
-    </section>
 
-    <section class="section">
-      <h2>Import from Resume PDF</h2>
-      <label class="file-label" for="pdfInput">Choose resume PDF</label>
-      <input type="file" id="pdfInput" accept="application/pdf">
-      <div id="statusMessage" class="status info">Upload a resume PDF to prefill your profile fields, then review and save.</div>
-      <div class="raw-text">
-        <h2>Extracted PDF Text</h2>
-        <textarea id="rawTextView" readonly placeholder="Extracted text will appear here after PDF upload."></textarea>
+      <div id="mainContainer" class="page hidden">
+        <div class="start-wrapper">
+          <button id="startBtn" class="start-button">
+            <span class="start-text">START</span>
+            <span class="start-subtext">Autofill Page</span>
+          </button>
+        </div>
       </div>
-    </section>
 
-    <div class="buttons">
-      <button id="saveBtn">Save Profile</button>
-      <button id="autofillBtn">Start Auto Fill</button>
-      <button id="exportJsonBtn">Export Profile JSON</button>
-    </div>
-
-    <section class="section detected">
-      <h2>Resume Import Preview</h2>
-      <div id="structureContainer">
-        <pre id="structureView">No PDF loaded yet.</pre>
+      <div id="profileContainer" class="page hidden">
+        <div class="page-header">
+          <h2>Your Profile</h2>
+          <p>Fill out the details you want to automatically inject into applications.</p>
+        </div>
+        <div id="profileFields" class="field-grid"></div>
+        <div class="action-footer">
+          <button id="cancelEditBtn" type="button" class="btn btn-secondary">Cancel</button>
+          <button id="saveBtn" class="btn btn-primary">Save Details</button>
+        </div>
       </div>
-    </section>
-
-    <div class="note">
-      <p class="small-note">Manual profile input is the primary source for autofill. PDF parsing is optional and intended to help you complete your profile faster. If you upload a PDF and also edit fields, your manual values will override the imported PDF data.</p>
-    </div>
+    </main>
   </div>
 
   <script type="module" src="popup.js"></script>
